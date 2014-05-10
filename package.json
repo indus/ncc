@@ -1,12 +1,18 @@
 {
-  "author": {
-    "name": "Stefan Keim (indus)",
-    "email": "42o8o1oo@googlemail.com"
-  },
+  "author": "Stefan Keim (indus) <42o8o1oo@googlemail.com>",
   "name": "ncc",
-  "description": "",
-  "version": "0.0.1",
+  "description": "node-chrome-canvas, a simple to use and performant HTML5 canvas for Node.js",
+  "version": "0.1.0",
   "keywords": [
-    "canvas"
-  ]
+    "canvas",
+	"chrome",
+	"image"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/indus/ncc.git"
+  },
+  "dependencies": {
+    "ws": "0.4.x"
+  }
 }
