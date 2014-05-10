@@ -1,2 +1,2 @@
-ncc
+ncc node-chrome-canvas
 ===
