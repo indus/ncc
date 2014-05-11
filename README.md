@@ -49,9 +49,9 @@
 
   **ncc.createImage(** &lt;[String] src&gt;,&lt;[function] onloadFn&gt;,&lt;[String] onerror&gt; **)** >>> **[nccImage]**
 
-  **nccCanvas.getContext(** *nativeAPI* **)** >>> **[nccContext2d]**
+    **nccCanvas.getContext(** *[nativeAPI](http://msdn.microsoft.com/en-us/library/ie/ff975238(v=vs.85).aspx)* **)** >>> **[nccContext2d]**
 
-  **nccContext2d.createLinearGradient(** *nativeAPI* **)** >>> **[nccLinearGradient]** <br>
+    **nccContext2d.createLinearGradient(** *nativeAPI* **)** >>> **[nccLinearGradient]** <br>
     **nccContext2d.createRadialGradient(** *nativeAPI* **)** >>> **[nccRadialGradient]** <br>
 **nccContext2d.createPattern(** *nativeAPI* **)** >>> **[nccPattern]**
   
