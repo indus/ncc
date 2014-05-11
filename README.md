@@ -50,7 +50,7 @@ ctx.fillRect(28, 28, 200, 200)();  // >>> function call is intentional!
 [CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)
 ... as close as possible.
 
-Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.
+Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.  
 Every 'Object' provided by **ncc** (and also every of their methods returns) is actually a function to trigger a synchronization. You can pass a error-first-callback ( 'function(error, result){...}' ) to such a function to receive the return value of the last action (see [examples](https://github.com/indus/ncc#examples)).
 <p align="center">
   <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
