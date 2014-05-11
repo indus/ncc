@@ -5,7 +5,7 @@
 </p>
 
 ### About
-**ncc** (or node-chrome-canvas) utilizes Googles [Chrome-Browser](https://www.google.com/chrome/browser/) and its [remote debugging protocol](https://developers.google.com/chrome-developer-tools/docs/debugger-protocol) to give [Node.js](http://nodejs.org/) access to a full-blown HTML5 Canvas-Element and its 2d-Context.
+**ncc** (or node-chrome-canvas) utilizes Googles [Chrome-Browser](https://www.google.com/chrome/browser/) and its [remote debugging protocol](https://developers.google.com/chrome-developer-tools/docs/debugger-protocol) to give [Node.js](http://nodejs.org/) access to a full-blown HTML5 Canvas-Element and its 2d-Context.  
 In contrast to [canvas](https://www.npmjs.org/package/canvas) (that may satisfy your needs as well) which uses [Cairo](http://cairographics.org/) to sham a canvas, **ncc** works with a real [HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement) in a Browser-Context.
 
 Behind the curtains of the familiar Canvas-API, **ncc** uses a single WebSocket-Connection and some command-bundeling-logic to gain its performance.
@@ -51,19 +51,20 @@ this gives you an error on startup? check out [startup-errors](https://github.co
 [CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)
 ... as close as possible.
 
-Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.
+Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.  
 Every 'Object' provided by **ncc** (and also every of their methods returns) is actually a function to trigger a synchronization. You can pass a error-first-callback ( 'function(error, result){...}' ) to such a function to receive the return value of the last action (see [examples](https://github.com/indus/ncc#examples)).
 <p align="center">
   <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
 </p>
 The **Canvas-** RenderingContext2D, -Gradient and -Pattern Proxys are fully implemented.  
 The **HTML-** CanvasElement and -ImageElement Proxys only have properties and functions that are necessary. For example they both implement a 'with' and 'height' but have no further DOM functionality.  
+
 Methods and properties beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFs(filePath, &lt;callback&gt;)' to write a image to the filesystem).
 
 #### poxy - creators
 
-* **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  s
-**ncc(** &lt;callback&gt; **)** >>> **[canvas]**
+* **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  
+**ncc(** &lt;callback&gt; **)** >>> **[canvas]** 
 
 * **ncc.createCanvas()** >>> **[canvas]**
 
@@ -71,8 +72,8 @@ Methods and properties beyond the native API are marked with a leading underscor
 
 * **nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[context2d]**
 
-* **context2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[linearGradient]**
-**context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**
+* **context2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[linearGradient]**  
+**context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**  
 **context2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[pattern]**
 
 #### options (with defaults)
