@@ -76,34 +76,34 @@ Methods that go beyond the native API are marked with a leading underscore and h
 
 ## options (with defaults)
 ```javascript
-{verbose: false,
-port: 9222,
-spawn: {
-command: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-args: ['--app=' + __dirname + '\\index.html',
-'--remote-debugging-port={PORT}',
-'--user-data-dir=' + os.tmpdir() + '\\nccanvas'],
-options: {}
-},
-retry: 3,
-retryDelay: 1000}
+{ verbose: false,
+  port: 9222,
+  spawn: {
+    command: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+    args: [ '--app=' + __dirname + '\\index.html',
+            '--remote-debugging-port={PORT}',
+            '--user-data-dir=' + os.tmpdir() + '\\nccanvas' ],
+    options: {}
+  },
+  retry: 3,
+  retryDelay: 1000 }
 ```
 
 If you are faceing problems getting **ncc** started (especially on a none-windows system) you should make changes to the 'spawn'-options. Try to **[spawn](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)** a blank chrome instance first...
 ```javascript
 var spawn = require('child_process').spawn,
-args = [],
-chrome = spawn('path/to/chromeExecutable', args);
+    args = [],
+    chrome = spawn('path/to/chromeExecutable', args);
 
 chrome.stdout.on('data', function (data) {
-console.log('stdout: ' + data);
+  console.log('stdout: ' + data);
 });
 
 chrome.stderr.on('data', function (data) {
-console.log('stderr: ' + data);
+  console.log('stderr: ' + data);
 });
 
 chrome.on('close', function (code) {
-console.log('child process exited with code ' + code);
+  console.log('child process exited with code ' + code);
 });
 ```
