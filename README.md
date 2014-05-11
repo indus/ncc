@@ -47,6 +47,6 @@
 
 * **ncc.createCanvas()** >>> **nccCanvas**
 
-* **ncc.createImage(&lt;[String] src&gt,&lt;[function] onloadFn&gt,&lt;[String] onerror&gt)** >>> **nccImage**
+* **ncc.createImage(&lt;[String] src&gt;,&lt;[function] onloadFn&gt;,&lt;[String] onerror&gt;)** >>> **nccImage**
 
-* **nccCanvas.getContext(&lt;[String] contextId&gt)** >>> **nccContext2d**
+* **nccCanvas.getContext(&lt;[String] contextId&gt;)** >>> **nccContext2d**
