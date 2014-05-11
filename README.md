@@ -42,12 +42,12 @@ ctx.fillRect(28, 28, 200, 200)();  // &lt;&lt;&lt; function call is intentional!
 
 ### API
 
-* **ncc(** &lt;options&gt;,&lt;callback&gt; **)** >>> **[canvas]**  
+* **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  
 **ncc(** &lt;callback&gt; **)** >>> **[canvas]**
 
 * **ncc.createCanvas()** >>> **[canvas]**
 
-* **ncc.createImage(** &lt;src&gt;,&lt;onloadFn&gt;,&lt;onerrorFn&gt; **)** >>> **[image]**
+* **ncc.createImage(** &lt;src&gt; **,** &lt;onloadFn&gt; **,** &lt;onerrorFn&gt; **)** >>> **[image]**
 
 * **nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[context2d]**
 
