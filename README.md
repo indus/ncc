@@ -10,6 +10,10 @@ In contrast to [canvas](https://www.npmjs.org/package/canvas) (that may satisfy 
 
 Behind the curtains of the familiar Canvas-API, **ncc** uses a single WebSocket-Connection and some command-bundeling-logic to gain its performance.
 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
+</p>
+
 ### Quickstart
 ```
 npm install ncc
