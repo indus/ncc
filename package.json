@@ -15,7 +15,7 @@
 	"png",
 	"webp",
 	"jpg",
-	"jpeg",
+	"jpeg"
   ],
   "repository": {
     "type": "git",
