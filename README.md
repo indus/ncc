@@ -42,6 +42,13 @@ ctx.fillRect(28, 28, 200, 200)();  // &lt;&lt;&lt; function call is intentional!
 
 ### API
 
+the nccAPI follows the common [Web API Interfaces](https://developer.mozilla.org/en-US/docs/Web/API):  
+[HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement),
+[CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D),
+[HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement),
+[CanvasGradient](https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient),
+[CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)
+
 * **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  
 **ncc(** &lt;callback&gt; **)** >>> **[canvas]**
 
