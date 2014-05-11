@@ -42,12 +42,21 @@ ctx.fillRect(28, 28, 200, 200)();  // &lt;&lt;&lt; function call is intentional!
 
 ### API
 
-the nccAPI follows the common [Web API Interfaces](https://developer.mozilla.org/en-US/docs/Web/API):  
+**ncc** follows the native [Web API Interfaces](https://developer.mozilla.org/en-US/docs/Web/API)...
 [HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement),
-[CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D),
 [HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement),
+[CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D),
 [CanvasGradient](https://developer.mozilla.org/en-US/docs/Web/API/CanvasGradient),
 [CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)
+... as close as possible.
+
+Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.
+Every 'Object' provided by **ncc* is (and also every of their methods returns) actually a function to trigger a synchronization. You can pass a callback ( 'function(error, result){...' ) to such a function to receive the return value of the last action (see [examples](https://github.com/indus/ncc#examples)).
+
+The **Canvas-**RenderingContext2D, -Gradient and -Pattern Proxys are fully implemented.  
+The **HTML-**CanvasElement and -ImageElement only have properties and functions that are necessary. They both implmenet a 'with' and 'height' but no DOM functionality.  
+Methods that go beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFs(filePath, &lt;callback&gt;)' to write a image to the filesystem)
+
 
 * **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  
 **ncc(** &lt;callback&gt; **)** >>> **[canvas]**
