@@ -26,7 +26,7 @@ var ctx = canvas.getContext('2d');
 ctx.fillStyle = "slateGray";
 ctx.fillRect(28, 28, 200, 200)();  // >>> function call is intentional!
 ```
-this gives you an error on startup? check out [startup-errors]
+this gives you an error on startup? check out [startup-errors](https://github.com/indus/ncc#startup-errors)
 ### Examples
 1. **[draw ncc logo](https://github.com/indus/ncc/blob/master/examples/1_draw_ncc_logo.js)**
 >>> **learn** how to setup ncc and draw shapes to canvas
@@ -71,40 +71,40 @@ Methods and properties beyond the native API are marked with a leading underscor
 
 * **nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[context2d]**
 
-* **context2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[linearGradient]**  
-**context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**  
+* **context2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[linearGradient]**
+**context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**
 **context2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[pattern]**
 
 #### options (with defaults)
 ```javascript
 { verbose: false,
-  port: 9222,
-  spawn: {
-    command: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-    args: [ '--app=' + __dirname + '\\index.html',
-            '--remote-debugging-port={PORT}',
-            '--user-data-dir=' + os.tmpdir() + '\\nccanvas' ],
-    options: {}
-  },
-  retry: 3,
-  retryDelay: 1000 }
+port: 9222,
+spawn: {
+command: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+args: [ '--app=' + __dirname + '\\index.html',
+'--remote-debugging-port={PORT}',
+'--user-data-dir=' + os.tmpdir() + '\\nccanvas' ],
+options: {}
+},
+retry: 3,
+retryDelay: 1000 }
 ```
 ### startup-errors
-If you are faceing problems getting **ncc** started (especially on a none-windows system) you should make changes to the 'spawn'-options. Try to **[spawn](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)** a blank chrome instance first...
+**ncc** is preconfigured to start a chrome childprocess on a windows system. If you are faceing problems getting **ncc** started (especially on a none-windows system) you should make changes to the 'spawn'-[options](https://github.com/indus/ncc#options). Try to **[spawn](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)** a blank chrome instance first...
 ```javascript
 var spawn = require('child_process').spawn,
-    args = [],
-    chrome = spawn('path/to/chromeExecutable', args);
+args = [],
+chrome = spawn('path/to/chromeExecutable', args);
 
 chrome.stdout.on('data', function (data) {
-  console.log('stdout: ' + data);
+console.log('stdout: ' + data);
 });
 
 chrome.stderr.on('data', function (data) {
-  console.log('stderr: ' + data);
+console.log('stderr: ' + data);
 });
 
 chrome.on('close', function (code) {
-  console.log('child process exited with code ' + code);
+console.log('child process exited with code ' + code);
 });
 ```
