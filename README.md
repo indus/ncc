@@ -59,7 +59,7 @@ The **Canvas-** RenderingContext2D, -Gradient and -Pattern Proxys are fully impl
 The **HTML-** CanvasElement and -ImageElement Proxys only have properties and functions that are necessary. They both implmenet a 'with' and 'height' but no DOM functionality.  
 Methods that go beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFs(filePath, &lt;callback&gt;)' to write a image to the filesystem)
 
-## poxy - creators
+#### poxy - creators
 
 * **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  
 **ncc(** &lt;callback&gt; **)** >>> **[canvas]**
@@ -74,7 +74,7 @@ Methods that go beyond the native API are marked with a leading underscore and h
 **context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**  
 **context2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[pattern]**
 
-## options (with defaults)
+#### options (with defaults)
 ```javascript
 { verbose: false,
   port: 9222,
