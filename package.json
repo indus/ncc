@@ -2,7 +2,7 @@
   "author": "Stefan Keim (indus) <42o8o1oo@googlemail.com>",
   "name": "ncc",
   "description": "node-chrome-canvas || a simple to use and performant HTML5 canvas for Node.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "canvas",
 	"chrome",
