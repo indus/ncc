@@ -50,13 +50,13 @@ ctx.fillRect(28, 28, 200, 200)();  // &lt;&lt;&lt; function call is intentional!
 [CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)  
 ... as close as possible.
 
-Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.
+Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.  
 Every 'Object' provided by **ncc* is (and also every of their methods returns) actually a function to trigger a synchronization. You can pass a error-first-callback ( 'function(error, result){...}' ) to such a function to receive the return value of the last action (see [examples](https://github.com/indus/ncc#examples)).
 <p align="center">
   <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
 </p>
-The **Canvas-** RenderingContext2D, -Gradient and -Pattern Proxys are fully implemented.
-The **HTML-** CanvasElement and -ImageElement only have properties and functions that are necessary. They both implmenet a 'with' and 'height' but no DOM functionality.
+The **Canvas-** RenderingContext2D, -Gradient and -Pattern Proxys are fully implemented.  
+The **HTML-** CanvasElement and -ImageElement only have properties and functions that are necessary. They both implmenet a 'with' and 'height' but no DOM functionality.  
 Methods that go beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFs(filePath, &lt;callback&gt;)' to write a image to the filesystem)
 
 ## poxy - creators
@@ -70,8 +70,8 @@ Methods that go beyond the native API are marked with a leading underscore and h
 
 * **nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[context2d]**
 
-* **context2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[linearGradient]**
-**context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**
+* **context2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[linearGradient]**  
+**context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**  
 **context2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[pattern]**
 
 ## options (with defaults)
