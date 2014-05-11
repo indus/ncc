@@ -24,7 +24,7 @@ canvas.width = canvas.height = 256;
 var ctx = canvas.getContext('2d');
 
 ctx.fillStyle = "slateGray";
-ctx.fillRect(28, 28, 200, 200)();  // &lt;&lt;&lt; function call is intentional!
+ctx.fillRect(28, 28, 200, 200)();  // >>> function call is intentional!
 ```
 ### Examples
 1. **[draw ncc logo](https://github.com/indus/ncc/blob/master/examples/1_draw_ncc_logo.js)**
