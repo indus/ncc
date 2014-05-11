@@ -50,6 +50,6 @@ ctx.fillRect(28, 28, 200, 200)();  // &lt;&lt;&lt; function call is intentional!
 
 **nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[nccContext2d]**
 
-**nccContext2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[nccLinearGradient]**
-**nccContext2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[nccRadialGradient]**
+**nccContext2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[nccLinearGradient]**  
+**nccContext2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[nccRadialGradient]**  
 **nccContext2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[nccPattern]**
