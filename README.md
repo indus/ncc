@@ -26,6 +26,7 @@ var ctx = canvas.getContext('2d');
 ctx.fillStyle = "slateGray";
 ctx.fillRect(28, 28, 200, 200)();  // >>> function call is intentional!
 ```
+this gives you an error on startup? check out [startup-errors]
 ### Examples
 1. **[draw ncc logo](https://github.com/indus/ncc/blob/master/examples/1_draw_ncc_logo.js)**
 >>> **learn** how to setup ncc and draw shapes to canvas
@@ -50,14 +51,14 @@ ctx.fillRect(28, 28, 200, 200)();  // >>> function call is intentional!
 [CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)
 ... as close as possible.
 
-Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.  
+Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.
 Every 'Object' provided by **ncc** (and also every of their methods returns) is actually a function to trigger a synchronization. You can pass a error-first-callback ( 'function(error, result){...}' ) to such a function to receive the return value of the last action (see [examples](https://github.com/indus/ncc#examples)).
 <p align="center">
   <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
 </p>
 The **Canvas-** RenderingContext2D, -Gradient and -Pattern Proxys are fully implemented.  
-The **HTML-** CanvasElement and -ImageElement Proxys only have properties and functions that are necessary. For example they both implemenet a 'with' and 'height' but have no further DOM functionality.  
-Methods that go beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFs(filePath, &lt;callback&gt;)' to write a image to the filesystem).
+The **HTML-** CanvasElement and -ImageElement Proxys only have properties and functions that are necessary. For example they both implement a 'with' and 'height' but have no further DOM functionality.  
+Methods and properties beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFs(filePath, &lt;callback&gt;)' to write a image to the filesystem).
 
 #### poxy - creators
 
@@ -88,7 +89,7 @@ Methods that go beyond the native API are marked with a leading underscore and h
   retry: 3,
   retryDelay: 1000 }
 ```
-
+### startup-errors
 If you are faceing problems getting **ncc** started (especially on a none-windows system) you should make changes to the 'spawn'-options. Try to **[spawn](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)** a blank chrome instance first...
 ```javascript
 var spawn = require('child_process').spawn,
