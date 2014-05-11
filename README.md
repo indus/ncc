@@ -42,10 +42,11 @@
 >>> **learn** how work with more than one canvas
 
 ### API
-  #### ncc(&lt;[Object] options&gt,&lt;[function] callback&gt) >>> nccCanvas
 
-  #### ncc.createCanvas() >>> nccCanvas)
+####ncc(&lt;[Object] options&gt,&lt;[function] callback&gt) >>> nccCanvas
 
-  #### ncc.createImage(&lt;[String] src&gt,&lt;[function] onloadFn&gt,&lt;[String] onerror&gt) >>> nccImage)
+####ncc.createCanvas() >>> nccCanvas)
 
-  #### nccCanvas.getContext(&lt;[String] contextId&gt) >>> nccContext2d)
+####ncc.createImage(&lt;[String] src&gt,&lt;[function] onloadFn&gt,&lt;[String] onerror&gt) >>> nccImage)
+
+####nccCanvas.getContext(&lt;[String] contextId&gt) >>> nccContext2d)
