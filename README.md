@@ -27,15 +27,15 @@ ctx.fillStyle = "slateGray";
 ctx.fillRect(28, 28, 200, 200)();  // <<< function call is intentional!
 ```
 ### Examples
-#1. [draw ncc logo](https://github.com/indus/ncc/blob/master/examples/1_draw_ncc_logo.js)
+#####1. [draw ncc logo](https://github.com/indus/ncc/blob/master/examples/1_draw_ncc_logo.js)
 **learn** how to setup ncc and draw shapes to canvas
-#2. [early access](https://github.com/indus/ncc/blob/master/examples/2_early_access.js)
+#####2. [early access](https://github.com/indus/ncc/blob/master/examples/2_early_access.js)
 **learn** how to start using ncc even before it is fully set up
-#3. [get return values](https://github.com/indus/ncc/blob/master/examples/3_get_return_values.js)
+#####3. [get return values](https://github.com/indus/ncc/blob/master/examples/3_get_return_values.js)
 **learn** how to get return values of non-void functions 
-#4. [gardients/patterns](https://github.com/indus/ncc/blob/master/examples/4_gradients_and_patterns.js)
+#####4. [gardients/patterns](https://github.com/indus/ncc/blob/master/examples/4_gradients_and_patterns.js)
 **learn** how to use gradients and patterns
-#5. [images](https://github.com/indus/ncc/blob/master/examples/5_images.js)
+#####5. [images](https://github.com/indus/ncc/blob/master/examples/5_images.js)
 **learn** how to apply images from urls or the filesystem
-#6. [shadow canvas](https://github.com/indus/ncc/blob/master/examples/6_shadow_canvas.js)
+#####6. [shadow canvas](https://github.com/indus/ncc/blob/master/examples/6_shadow_canvas.js)
 **learn** how work with more than one canvas
