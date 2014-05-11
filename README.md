@@ -42,14 +42,15 @@ ctx.fillRect(28, 28, 200, 200)();  // &lt;&lt;&lt; function call is intentional!
 
 ### API
 
-**ncc(** &lt;[Object] options&gt;,&lt;[function] callback&gt; **)** >>> **[nccCanvas]**
+* **ncc(** &lt;[Object] options&gt;,&lt;[function] callback&gt; **)** >>> **[canvas]**  
+**ncc(** &lt;[function] callback&gt; **)** >>> **[canvas]**
 
-**ncc.createCanvas()** >>> **[nccCanvas]**
+* **ncc.createCanvas()** >>> **[canvas]**
 
-**ncc.createImage(** &lt;[String] src&gt;,&lt;[function] onloadFn&gt;,&lt;[String] onerror&gt; **)** >>> **[nccImage]**
+* **ncc.createImage(** &lt;[String] src&gt;,&lt;[function] onloadFn&gt;,&lt;[String] onerror&gt; **)** >>> **[image]**
 
-**nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[nccContext2d]**
+* **nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[context2d]**
 
-**nccContext2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[nccLinearGradient]**  
-**nccContext2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[nccRadialGradient]**  
-**nccContext2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[nccPattern]**
+* **context2d.createLinearGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createLinearGradient())* **)** >>> **[linearGradient]**  
+**context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**  
+**context2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[pattern]**
