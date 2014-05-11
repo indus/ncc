@@ -43,15 +43,15 @@
 
 ### API
 
-**ncc(&lt;[Object] options&gt;,&lt;[function] callback&gt;)** >>> **nccCanvas**
+**ncc(** &lt;[Object] options&gt;,&lt;[function] callback&gt; **)** >>> **nccCanvas**
 
-**ncc.createCanvas()** >>> **nccCanvas**
+  **ncc.createCanvas()** >>> **nccCanvas**
 
-**ncc.createImage(&lt;[String] src&gt;,&lt;[function] onloadFn&gt;,&lt;[String] onerror&gt;)** >>> **nccImage**
+  **ncc.createImage(** &lt;[String] src&gt;,&lt;[function] onloadFn&gt;,&lt;[String] onerror&gt; **)** >>> **nccImage**
 
-**nccCanvas.getContext(*nativeAPI*)** >>> **nccContext2d**
+  **nccCanvas.getContext(** *nativeAPI* **)** >>> **nccContext2d**
 
-**nccContext2d.createLinearGradient(*nativeAPI*)** >>> **nccLinearGradient** <br>
-**nccContext2d.createRadialGradient(*nativeAPI*)** >>> **nccRadialGradient** <br>
-**nccContext2d.createPattern(*nativeAPI*)** >>> **nccPatern**
+  **nccContext2d.createLinearGradient(** *nativeAPI* **)** >>> **nccLinearGradient** <br>
+    **nccContext2d.createRadialGradient(** *nativeAPI* **)** >>> **nccRadialGradient** <br>
+**nccContext2d.createPattern(** *nativeAPI* **)** >>> **nccPatern**
   
