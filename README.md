@@ -49,7 +49,7 @@
 
   **ncc.createImage(** &lt;[String] src&gt;,&lt;[function] onloadFn&gt;,&lt;[String] onerror&gt; **)** >>> **[nccImage]**
 
-    **nccCanvas.getContext(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods)* **)** >>> **[nccContext2d]**
+    **nccCanvas.getContext(** [nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement#Methods) **)** >>> **[nccContext2d]**
 
     **nccContext2d.createLinearGradient(** *nativeAPI* **)** >>> **[nccLinearGradient]** <br>
     **nccContext2d.createRadialGradient(** *nativeAPI* **)** >>> **[nccRadialGradient]** <br>
