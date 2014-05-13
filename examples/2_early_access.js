@@ -12,7 +12,7 @@ var canvas = ncc(function (err, canvas) {
         return;
     }
 
-    console.log("... in order of creation!");
+    console.log("\n\033[46m\t" + "... in order of creation!" + "\033[49m\n");
 })
 
 //  --- ALTERNATIVES ---
@@ -32,7 +32,7 @@ ctx.font = "30px Arial";
 ctx.textAlign = "center";
 ctx.fillText("NCC Example 2 - early access", canvas.width / 2, 60, canvas.width-50);
 
-ctx(function (err,res) {
-    console.log("all callbacks get invoked ...");
+ctx(function (err, res) {
+    console.log("\n\033[46m\t" + "all callbacks get invoked ..." + "\033[49m\n");
 })
 

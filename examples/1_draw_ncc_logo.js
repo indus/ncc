@@ -87,6 +87,7 @@ ncc(function (err, canvas) {
         if (err)
             console.error("ncc draw Error:", err);
         console.timeEnd("ncc draw time");
+        console.log("\n\033[46m\t" + "Tataa!" + "\033[49m\n");
     })
 
     //  --- ALTERNATIVES ---

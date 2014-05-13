@@ -43,7 +43,7 @@ var canvas = ncc(function (err, canvas) {
                 return;
             }
 
-            console.error("Tataa!");
+            console.error("\n\033[46m\t" + "Tataa!" + "\033[49m\n");
         });
     });
 

@@ -29,7 +29,7 @@ var canvas = ncc(function (err, canvas) {
                 return;
             }
 
-            console.error("Hi! My name is Stefan, but you can call me 'indus'!");
+            console.log("\n\033[46m\t" + "Hi! My name is Stefan, but you can call me 'indus'!" + "\033[49m\n");
         });
     }
 

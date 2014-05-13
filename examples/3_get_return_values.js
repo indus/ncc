@@ -22,6 +22,8 @@ var canvas = ncc(function (err, canvas) {
         // --- INFO ---
         //  'val' is whatever the function-call would have returned directly in the browser
 
+        console.log("\n\033[46m\t" + "textWidth: '" + val.width + "'" + "\033[49m\n");
+
         canvas.width = val.width;
         canvas.height = 22;
 
@@ -43,7 +45,7 @@ var canvas = ncc(function (err, canvas) {
                 return;
             }
 
-            console.log("dataURL: '" + val.substring(0, 40) + "...' [length: " + val.length + "]");
+            console.log("\n\033[46m\t" + "dataURL: '" + val.substring(0, 40) + "...' [length: " + val.length + "]" + "\033[49m\n");
         })
     });
 })

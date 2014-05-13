@@ -35,7 +35,7 @@ ncc(function (err, canvas_main) {
 
     ctx_main.save()
     ctx_main.translate(128, 128);
-    ctx_main.rotate(Math.PI / 180 * 45);
+    ctx_main.rotate(Math.PI / 180 * 45)();
     ctx_main.translate(-75, -75);
 
     ctx_main.drawImage(canvas_shadow, 0, 0)
@@ -49,18 +49,16 @@ ncc(function (err, canvas_main) {
 
     // --- INFO ---
     //  to give garbage collection a chance you should nullify all proxy-objects (image, canvas, etc.) that are no longer in use
-    //  do not forget to call the hidden function '_null()' before setting them to 'null'
+    //  every proxy-object has a hidden attribute '_remote' taht has to be set to 'null' explicitly:
     
-    canvas_shadow._null()
-    canvas_shadow = null;
+    canvas_shadow = canvas_shadow._remote = null;
 
     ctx_main(function (err, res) {
         if (err) {
             console.error("shadow canvas Error:", err);
             return;
         }
-
-        console.error("Tataa!");
+        console.log("\n\033[46m\t" + "Tataa!" + "\033[49m\n");
     })
 
     // --- INFO ---
