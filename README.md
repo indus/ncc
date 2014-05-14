@@ -57,9 +57,9 @@ Every 'Object' provided by **ncc** (and also every of their methods returns) is 
   <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
 </p>
 The **Canvas-** RenderingContext2D, -Gradient and -Pattern Proxys are fully implemented.  
-The **HTML-** CanvasElement and -ImageElement Proxys only have properties and functions that are necessary. For example they both implement a 'width' and 'height' but have no further DOM functionality.  
+The **HTML-** CanvasElement and -ImageElement Proxys only have properties and functions that are necessary. For example they both implement a 'width' and 'height' attribute but have no further DOM functionality.  
 
-Methods and properties beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFs(filePath, &lt;callback&gt;)' to write a image to the filesystem).
+Methods and properties beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFile(fileName, &lt;callback&gt;)' to write a image to the filesystem).
 
 #### proxy - creators
 
