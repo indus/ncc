@@ -24,7 +24,7 @@ canvas.width = canvas.height = 256;
 var ctx = canvas.getContext('2d');
 
 ctx.fillStyle = "slateGray";
-ctx.fillRect(28, 28, 200, 200)();  // >>> function call is intentional!
+ctx.fillRect(28, 28, 200, 200)();  // function call is intentional!
 ```
 this gives you an error on startup? check out [startup-errors](https://github.com/indus/ncc#startup-errors)
 ### Examples
