@@ -56,6 +56,6 @@ var canvas = ncc(function (err, canvas) {
     //
     //  and also it has a hidden function to write its data to the filesystem
     //
-    //    'img._toFs('path/to/newImg.png',<callback>)'
+    //    'img._toFile('path/to/newImg.png',<callback>)'
 
 })
