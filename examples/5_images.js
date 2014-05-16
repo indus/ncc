@@ -17,7 +17,7 @@ var canvas = ncc(function (err, canvas) {
     img.onload = function (img) {
 
         // --- INFO ---
-        //  after loaded the img has 'width' and 'height' properties
+        //  after loaded the img has 'width' and 'height' attributes
 
         canvas.width = img.width+20;
         canvas.height = img.height+20;
@@ -44,7 +44,7 @@ var canvas = ncc(function (err, canvas) {
 
 
     //  --- ALTERNATIVES ---
-    //  'createImage' allows to pass evererything necessary directly:
+    //  'createImage' allows to pass all necessary arguments directly:
     //
     //    'ncc.createImage(<srcString>,<onloadFn>,<onerrorFn>)'
 
@@ -54,7 +54,7 @@ var canvas = ncc(function (err, canvas) {
     //
     //    'var dataURL = img._base64'
     //
-    //  and also it has a hidden function to write its data to the filesystem
+    //  and also it has a hidden function to write it to the filesystem
     //
     //    'img._toFile('path/to/newImg.png',<callback>)'
 
