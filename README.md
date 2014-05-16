@@ -92,7 +92,7 @@ Methods and properties beyond the native API are marked with a leading underscor
 }
 ```
 ### startup-errors
-**ncc** is preconfigured to start a chrome childprocess on a Windows system with a default Chrome installation. If you are facing problems getting **ncc** started (especially on a none-windows system) you should make changes to the 'spawn'-[options](https://github.com/indus/ncc#options). Try to **[spawn](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)** a blank chrome instance first...
+**ncc** is preconfigured to start a chrome childprocess on a Windows system with a default Chrome installation. If you are facing problems getting **ncc** started (especially on a non-windows system) you should make changes to the 'spawn'-[options](https://github.com/indus/ncc#options). Try to **[spawn](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)** a blank chrome instance first...
 ```javascript
 var spawn   = require('child_process').spawn,
     args    = [],
