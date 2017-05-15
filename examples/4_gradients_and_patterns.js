@@ -1,12 +1,9 @@
 ﻿// NCC Example 4 - gradients and patterns
 
-var ncc = require('ncc');
+var ncc = require('../index.js'); // require('ncc');
 
 var canvas = ncc(function (err, canvas) {
-    if (err) {
-        console.error("ncc startup Error:", err);
-        return;
-    }
+    if (err) throw err;
 
     canvas.width = 256;
     canvas.height = 256;
@@ -23,11 +20,7 @@ var canvas = ncc(function (err, canvas) {
     ctx.fillStyle = grd;
 
     ctx.fillRect(0, 0, 256, 256)(function (err, val) {
-
-        if (err) {
-            console.error("gradient Error:", err);
-            return;
-        }
+        if (err) throw err;
 
         // --- INFO ---
         //  now we reuse the filled canvas in a pattern and draw it back to canvas
@@ -38,12 +31,9 @@ var canvas = ncc(function (err, canvas) {
         ctx.scale(.1, .1)
 
         ctx.fill()(function (err, res) {
-            if (err) {
-                console.error("pattern Error:", err);
-                return;
-            }
+            if (err) throw err;
 
-            console.error("\n\033[46m\t" + "Tataa!" + "\033[49m\n");
+            console.error("Tataa!");
         });
     });
 

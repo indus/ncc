@@ -1,12 +1,9 @@
 ﻿// NCC Example 5 - images
 
-var ncc = require('ncc');
+var ncc = require('../index.js'); // require('ncc');
 
 var canvas = ncc(function (err, canvas) {
-    if (err) {
-        console.error("ncc startup Error:", err);
-        return;
-    }
+    if (err) throw err;
 
     var img = ncc.createImage();
 
@@ -24,12 +21,9 @@ var canvas = ncc(function (err, canvas) {
 
         var ctx = canvas.getContext("2d");
         ctx.drawImage(img, 10, 10)(function (err,res) {
-            if (err) {
-                console.error("drawImage Error:", err);
-                return;
-            }
+            if (err) throw err;
 
-            console.log("\n\033[46m\t" + "Hi! My name is Stefan, but you can call me 'indus'!" + "\033[49m\n");
+            console.log("Hi! My name is Stefan, but you can call me 'indus'!");
         });
     }
 
@@ -37,7 +31,7 @@ var canvas = ncc(function (err, canvas) {
     //  setting 'src' triggers image loading:
     //
     //    from the filesystem:  'img.src = "path/to/image.png"'
-    //    from a url:           'img.src = "http://www.yourSite.com/image.png"' ('https://...' and 'ftp://..' is not supported)
+    //    from a URL:           'img.src = "http://www.yourSite.com/image.png"' ('https://...' and 'ftp://..' is not supported)
     //    from a dataURL:       'img.src = "data:image/png;base64, ..."'
 
     img.src = __dirname + "/dummy.jpg"
@@ -54,7 +48,7 @@ var canvas = ncc(function (err, canvas) {
     //
     //    'var dataURL = img._base64'
     //
-    //  and also it has a hidden function to write it to the filesystem
+    //  and it also has a hidden function to write it directly to the filesystem
     //
     //    'img._toFile('path/to/newImg.png',<callback>)'
 

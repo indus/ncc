@@ -26,18 +26,24 @@ var ctx = canvas.getContext('2d');
 ctx.fillStyle = "slateGray";
 ctx.fillRect(28, 28, 200, 200)();  // function call is intentional!
 ```
-this gives you an error on startup? check out [startup-errors](https://github.com/indus/ncc#startup-errors)
+
 ### Examples
+
 1. **[draw ncc logo](https://github.com/indus/ncc/blob/master/examples/1_draw_ncc_logo.js)**
 >>> **learn** how to setup ncc and draw shapes to canvas
+
 2. **[early access](https://github.com/indus/ncc/blob/master/examples/2_early_access.js)**
 >>> **learn** how to start using ncc even before it is fully set up
+
 3. **[get return values](https://github.com/indus/ncc/blob/master/examples/3_get_return_values.js)**
 >>> **learn** how to get return values of non-void functions
+
 4. **[gardients/patterns](https://github.com/indus/ncc/blob/master/examples/4_gradients_and_patterns.js)**
 >>> **learn** how to use gradients and patterns
+
 5. **[images](https://github.com/indus/ncc/blob/master/examples/5_images.js)**
 >>> **learn** how to apply images from urls or the filesystem
+
 6. **[shadow canvas](https://github.com/indus/ncc/blob/master/examples/6_shadow_canvas.js)**
 >>> **learn** how work with more than one canvas
 
@@ -52,7 +58,7 @@ this gives you an error on startup? check out [startup-errors](https://github.co
 ... as close as possible.
 
 Differences are a result of the asynchronous nature of **ncc**. All object creations, method calls and property manipulations don't get processed directly, but get serialized and stored until a return value is necessary and a request is therefore unavoidable.  
-Every 'Object' provided by **ncc** (and also every of their methods returns) is actually a function to trigger a synchronization. You can pass a error-first-callback ( 'function(error, result){...}' ) to such a function to receive the return value of the last action (see [examples](https://github.com/indus/ncc#examples)).
+Every 'Object' provided by **ncc** (and also every return value of a method) is actually a function to trigger a synchronization. You can pass a error-first-callback ( 'function(error, result){...}' ) to such a function to receive the return value of the last action (see [examples](https://github.com/indus/ncc#examples)).
 <p align="center">
   <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
 </p>
@@ -66,7 +72,7 @@ Methods and properties beyond the native API are marked with a leading underscor
 * **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  
 **ncc(** &lt;callback&gt; **)** >>> **[canvas]** 
 
-* **ncc.createCanvas()** >>> **[canvas]**
+* **ncc.createCanvas()** >>> **[canvas]**    *if one is not enough*
 
 * **ncc.createImage(** &lt;src&gt; **,** &lt;onloadFn&gt; **,** &lt;onerrorFn&gt; **)** >>> **[image]**
 
@@ -78,35 +84,10 @@ Methods and properties beyond the native API are marked with a leading underscor
 
 #### options (with defaults)
 ```javascript
-{ logLevel: 2,
+{ logLevel: 'info', //['log','info','warn','error']
   port: 9222,
-  retry: 3,
-  retryDelay: 1000,
-  spawn: {
-    command: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-    args: [ '--app=' + __dirname + '\\index.html',
-            '--remote-debugging-port={PORT}',
-            '--user-data-dir=' + os.tmpdir() + '\\nccanvas' ],
-    options: {}
-  }
+  retry: 9,
+  retryDelay: 500,
+  headless: false
 }
-```
-### startup-errors
-**ncc** is preconfigured to start a chrome childprocess on a Windows system with a default Chrome installation. If you are facing problems getting **ncc** started (especially on a non-windows system) you should make changes to the 'spawn'-[options](https://github.com/indus/ncc#options). If you are not sure what options you need, you can try to **[spawn](http://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)** a blank chrome instance first...
-```javascript
-var spawn   = require('child_process').spawn,
-    args    = [],
-    chrome  = spawn('path/to/chromeExecutable', args);
-
-chrome.stdout.on('data', function (data) {
-  console.log('stdout: ' + data);
-});
-
-chrome.stderr.on('data', function (data) {
-  console.log('stderr: ' + data);
-});
-
-chrome.on('close', function (code) {
-  console.log('child process exited with code ' + code);
-});
 ```

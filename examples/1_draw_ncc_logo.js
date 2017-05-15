@@ -1,23 +1,15 @@
 ﻿// NCC Example 1 - draw ncc logo
 
-var ncc = require('ncc');
+var ncc = require('../index.js'); // require('ncc');
 
 console.time("ncc startup time");
 
 // --- INFO ---
 // ncc uses error-first callbacks
 
-ncc(function (err, canvas) {
+ncc({ logLevel: 'log' }, function (err, canvas) {
 
-    // --- INFO ---
-    // if you see errors you probably have to call 'ncc' with options
-    //
-    //    'ncc(<options>,<callback>)'
-
-    if (err) {
-        console.error("ncc startup Error:", err);
-        return;
-    }
+    if (err) throw err;
 
     console.timeEnd("ncc startup time");
     console.time("ncc draw time");
@@ -84,10 +76,10 @@ ncc(function (err, canvas) {
     // to actually trigger the action and see a result you have to call a function: 
 
     ctx(function (err, ctx) {
-        if (err)
-            console.error("ncc draw Error:", err);
+        if (err) throw err;
+
         console.timeEnd("ncc draw time");
-        console.log("\n\033[46m\t" + "Tataa!" + "\033[49m\n");
+        console.log("Tataa!");
     })
 
     //  --- ALTERNATIVES ---

@@ -1,12 +1,9 @@
 ﻿// NCC Example 3 - get return values
 
-var ncc = require('ncc');
+var ncc = require('../index.js'); // require('ncc');
 
 var canvas = ncc(function (err, canvas) {
-    if (err) {
-        console.error("ncc startup Error:", err);
-        return;
-    }
+    if (err) throw err;
 
 
     var ctx = canvas.getContext("2d");
@@ -14,15 +11,12 @@ var canvas = ncc(function (err, canvas) {
     var text = "look how exact this fits"
 
     ctx.measureText(text)(function (err, val) {
-        if (err) {
-            console.error("measureText Error:", err);
-            return;
-        }
+        if (err) throw err;
 
         // --- INFO ---
         //  'val' is whatever the function-call would have returned directly in the browser
 
-        console.log("\n\033[46m\t" + "textWidth: '" + val.width + "'" + "\033[49m\n");
+        console.log(">>> textWidth: '" + val.width + "'");
 
         canvas.width = val.width;
         canvas.height = 22;
@@ -40,12 +34,9 @@ var canvas = ncc(function (err, canvas) {
         //    'canvas.toDataURL()(callback)' not! 'canvas.toDataURL(callback)'
 
         canvas.toDataURL('image/jpeg', .5)(function (err, val) {
-            if (err) {
-                console.error("toDataURL Error:", err);
-                return;
-            }
+            if (err) throw err;
 
-            console.log("\n\033[46m\t" + "dataURL: '" + val.substring(0, 40) + "...' [length: " + val.length + "]" + "\033[49m\n");
+            console.log(">>> dataURL: '" + val.substring(0, 40) + "...' [length: " + val.length + "]");
         })
     });
 })

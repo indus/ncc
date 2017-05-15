@@ -1,28 +1,44 @@
 {
-  "author": "Stefan Keim (indus) <42o8o1oo@googlemail.com>",
+  "author": "Stefan Keim (indus)",
   "name": "ncc",
-  "description": "node-chrome-canvas || a simple to use and performant HTML5 canvas for Node.js",
+  "description": "node-chrome-canvas | a simple to use and performant HTML5 canvas for Node.js",
   "version": "0.2.0",
-  "keywords": [
-    "canvas",
-	"chrome",
-	"draw",
-	"image",
-	"images",
-	"graphic",
-	"graphics",
-	"gif",
-	"png",
-	"webp",
-	"jpg",
-	"jpeg"
-  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "run-p dev:*",
+    "dev:tsc_lib": "tsc -w --target ES6 --outfile lib/ncc.js lib/ncc.ts",
+    "dev:run": "nodemon index.js"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.1",
+    "tracer": "^0.8.7",
+    "ws": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.18"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/indus/ncc.git"
   },
-  "dependencies": {
-    "ws": "0.4.x"
+  "bugs": {
+    "url": "https://github.com/indus/ncc2/issues"
   },
-  "license":"MIT"
+  "keywords": [
+    "canvas",
+    "chrome",
+    "draw",
+    "image",
+    "images",
+    "graphic",
+    "graphics",
+    "gif",
+    "png",
+    "webp",
+    "jpg",
+    "jpeg"
+  ],
+  "homepage": "https://github.com/indus/ncc2#readme",
+  "license": "MIT"
 }
