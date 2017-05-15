@@ -58,14 +58,24 @@ Every 'Object' provided by **ncc** (and also every return value of a method) is 
   <img src="https://raw.githubusercontent.com/indus/ncc/master/footage/flow.png" alt="flowchart"/>
 </p>
 The **Canvas-** RenderingContext2D, -Gradient and -Pattern Proxys are fully implemented.  
-The **HTML-** CanvasElement and -ImageElement Proxys only have properties and functions that are necessary. For example they both implement a 'width' and 'height' attribute but have no further DOM functionality.  
+The **HTML-** CanvasElement and -ImageElement Proxys only necessary properties and functions. For example they both implement a 'width' and 'height' attribute but don´t have further DOM functionality.  
 
-Methods and properties beyond the native API are marked with a leading underscore and hidden from console by default (e.g. 'image._toFile(fileName, &lt;callback&gt;)' to write a image to the filesystem).
+Methods and properties beyond the native API are marked with a leading underscore and they are hidden from console by default (e.g. 'image._toFile(fileName, &lt;callback&gt;)' to write an image to the filesystem).
 
 #### proxy - creators
 
 * **ncc(** &lt;options&gt; **,** &lt;callback&gt; **)** >>> **[canvas]**  
 **ncc(** &lt;callback&gt; **)** >>> **[canvas]** 
+
+options (with defaults)
+```javascript
+{ logLevel: 'info', //['log','info','warn','error']
+  port: 9222,
+  retry: 9,
+  retryDelay: 500,
+  headless: false
+}
+```
 
 * **ncc.createCanvas()** >>> **[canvas]**    *if one is not enough*
 
@@ -77,12 +87,3 @@ Methods and properties beyond the native API are marked with a leading underscor
 **context2d.createRadialGradient(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createRadialGradient())* **)** >>> **[radialGradient]**  
 **context2d.createPattern(** *[nativeAPI](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#createPattern())* **)** >>> **[pattern]**
 
-#### options (with defaults)
-```javascript
-{ logLevel: 'info', //['log','info','warn','error']
-  port: 9222,
-  retry: 9,
-  retryDelay: 500,
-  headless: false
-}
-```
