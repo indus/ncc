@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * ncc v0.2.x
  *
  * Copyright 2014 Stefan Keim (indus)
