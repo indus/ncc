@@ -66,19 +66,34 @@ var NCC = Object.defineProperties(
                     rdp.ws.on('open', () => {
                         logger.info("connected");
 
-                        rdp((err, res) => {
-                            if (err)
-                                logger.error(`[ncc] error: ${err.message}`);
-                            if (callback)
-                                err ? callback(err, null) : callback(null, canvas, rdp);
-                        });
+                        function checkReadyState() {
+                            rdp.ws.once('message', (data) => {
+                                data = JSON.parse(data);
+                                if (!(data.result && data.result.result.value == "complete"))
+                                    return checkReadyState();
+
+                                logger.info(`document.readyState is "complete"`);
+                                rdp((err, res) => {
+
+                                    if (err)
+                                        logger.error(`[ncc] error: ${err.message}`);
+                                    if (callback)
+                                        err ? callback(err, null) : callback(null, canvas, rdp);
+                                })
+                            })
+                            rdp.ws.send(`{"id":0,"method":"Runtime.evaluate", "params":{"expression":"document.readyState"}}`, err => err && checkReadyState());
+                        }
+                        checkReadyState()
+
+
                     });
 
                     rdp.ws.on('close', () => logger.info("session closed"));
+
+
                 })
             })
         }
-
 
         var index = path.join(__dirname, 'ncc.html');
         var launcher = new ChromeLauncher({
@@ -90,7 +105,10 @@ var NCC = Object.defineProperties(
                 [`--app=${index}`]
         })
 
-        const exitHandler = err => launcher.kill().then(() => process.exit(-1));
+        const exitHandler = (err) => {
+            rdp.ws.terminate()
+            launcher.kill().then(() => process.exit(-1));
+        };
 
         process.on('SIGINT', exitHandler);
         process.on('unhandledRejection', exitHandler);
@@ -108,7 +126,6 @@ var NCC = Object.defineProperties(
                     throw err;
                 }, logger.error);
             });
-
 
         return canvas;
 
@@ -134,7 +151,6 @@ var NCC = Object.defineProperties(
                 }
 
                 var canvas: any = (callback?) => {
-
                     rdp(callback ? (err, res) => {
                         err ? callback(err, null) : callback(null, canvas);
                     } : undefined);
@@ -196,13 +212,16 @@ var rdp = Object.defineProperties(
     (_): RDP => {
 
         if (typeof _ == 'string') {
-            if (NCC.options.logLevel >= 3)
-                console.log(_);
-            rdp.cmd += _ + ';';
+            logger.log(`< ${_}`);
+            rdp.cmd += `${_};`;
             return rdp;
         }
 
         if (_ !== null) {
+            if (rdp.cmd === '') {
+                _();
+                return rdp;
+            }
             rdp.queue.push({
                 cmd: rdp.cmd,
                 callback: _
@@ -214,13 +233,13 @@ var rdp = Object.defineProperties(
 
         rdp.req = rdp.queue[0];
 
-        logger.log(`> ${rdp.req.cmd.split(';').slice(0, -1).join(';\n  ')}`);
+        logger.trace(`> ${rdp.req.cmd.split(';').join(';\n  ')}`);
 
-        rdp.ws.send(`{"id":0,"method":"Runtime.evaluate", "params":{"expression":"${rdp.req.cmd}"}}`);
         rdp.ws.once('message', data => {
-            data = JSON.parse(data);
+            data.error && logger.error(data.error)
+            !data.error && logger.log(data.result);
 
-            logger.log(data.error || data.result);
+            data = JSON.parse(data);
 
             var err = data.error || data.result.wasThrown ? data.result.result.description : null,
                 res = err ? null : data.result.result;
@@ -229,6 +248,8 @@ var rdp = Object.defineProperties(
             rdp.req = rdp.queue.shift();
             rdp(null);
         });
+
+        rdp.ws.send(`{"id":0,"method":"Runtime.evaluate", "params":{"expression":"${rdp.req.cmd}"}}`, err => err && rdp());
 
         return rdp;
     }, {

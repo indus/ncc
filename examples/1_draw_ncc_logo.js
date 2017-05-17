@@ -7,7 +7,7 @@ console.time("ncc startup time");
 // --- INFO ---
 // ncc uses error-first callbacks
 
-ncc({ logLevel: 'log' }, function (err, canvas) {
+ncc({ logLevel: 'trace' }, function (err, canvas) {
 
     if (err) throw err;
 

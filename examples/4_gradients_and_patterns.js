@@ -2,7 +2,7 @@
 
 var ncc = require('../index.js'); // require('ncc');
 
-var canvas = ncc(function (err, canvas) {
+var canvas = ncc({ logLevel: 'trace' }, function (err, canvas) {
     if (err) throw err;
 
     canvas.width = 256;
@@ -18,23 +18,20 @@ var canvas = ncc(function (err, canvas) {
     grd.addColorStop(1, "white");
 
     ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, 256, 256)
 
-    ctx.fillRect(0, 0, 256, 256)(function (err, val) {
+    // --- INFO ---
+    //  now we reuse the filled canvas in a pattern and draw it back to canvas
+
+    var pat = ctx.createPattern(canvas, "repeat");
+    ctx.rect(0, 0, 256, 256);
+    ctx.fillStyle = pat;
+    ctx.scale(.1, .1)
+
+    ctx.fill()(function (err, res) {
         if (err) throw err;
 
-        // --- INFO ---
-        //  now we reuse the filled canvas in a pattern and draw it back to canvas
-
-        var pat = ctx.createPattern(canvas, "repeat");
-        ctx.rect(0, 0, 256, 256);
-        ctx.fillStyle = pat;
-        ctx.scale(.1, .1)
-
-        ctx.fill()(function (err, res) {
-            if (err) throw err;
-
-            console.error("Tataa!");
-        });
+        console.error("Tataa!");
     });
 
     //  --- ALTERNATIVES ---

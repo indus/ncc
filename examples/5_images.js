@@ -1,7 +1,6 @@
 ﻿// NCC Example 5 - images
 
 var ncc = require('../index.js'); // require('ncc');
-
 var canvas = ncc(function (err, canvas) {
     if (err) throw err;
 
