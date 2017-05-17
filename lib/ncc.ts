@@ -50,7 +50,7 @@ var NCC = Object.defineProperties(
                 res.on('data', chunk => rdJson += chunk);
 
                 res.on('end', () => {
-                    var ncc_ = JSON.parse(rdJson).find(i => i.title === "ncc" || path.dirname(i.url) === "__dirname");
+                    var ncc_ = JSON.parse(rdJson).find(i => i.title === "ncc" || path.basename(i.url) === "ncc.html");
 
                     if (!ncc_) {
                         if (attempts < NCC.options.retry) {
@@ -80,11 +80,11 @@ var NCC = Object.defineProperties(
         }
 
 
-        var index = path.join(__dirname, 'index.html');
+        var index = path.join(__dirname, 'ncc.html');
         var launcher = new ChromeLauncher({
             port: NCC.options.port,
             autoSelectChrome: true,
-            startingUrl: NCC.options.headless ? `${index}` : '',
+            startingUrl: NCC.options.headless ? index : '',
             chromeFlags: NCC.options.headless ?
                 ['--window-size=0,0', '--disable-gpu', '--headless'] :
                 [`--app=${index}`]
