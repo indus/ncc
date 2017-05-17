@@ -2,7 +2,7 @@
   "author": "Stefan Keim (indus)",
   "name": "ncc",
   "description": "node-chrome-canvas | a simple to use and performant HTML5 canvas for Node.js",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "run-p dev:*",
